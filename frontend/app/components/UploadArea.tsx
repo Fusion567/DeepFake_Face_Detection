@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { FiUpload, FiImage } from 'react-icons/fi'
 import { useState, useCallback } from 'react'
 import NextImage from 'next/image'
+import { useCallback } from 'react';
 
 interface UploadAreaProps {
   onUpload: (file: File) => Promise<void>
@@ -31,31 +32,31 @@ export default function UploadArea({ onUpload, isLoading }: UploadAreaProps) {
     }
   }
 
-  const handleFile = async (file: File) => {
-    if (!file.type.match('image.*')) {
-      alert('Please upload an image file (JPEG, PNG)')
-      return
-    }
-
-    if (file.size > 5 * 1024 * 1024) { // 5MB limit
-      alert('File size too large (max 5MB)')
-      return
-    }
-
-    try {
-      // Set preview
-      const reader = new FileReader()
-      reader.onload = () => setPreview(reader.result as string)
-      reader.readAsDataURL(file)
-
-      // Process upload
-      await onUpload(file)
-    } catch (error) {
-      console.error('Upload failed:', error)
-      setPreview(null)
-      alert('Upload failed. Please try again.')
-    }
+  const handleFile = useCallback(async (file: File) => {
+  if (!file.type.match('image.*')) {
+    alert('Please upload an image file (JPEG, PNG)')
+    return
   }
+
+  if (file.size > 5 * 1024 * 1024) { // 5MB limit
+    alert('File size too large (max 5MB)')
+    return
+  }
+
+  try {
+    // Set preview
+    const reader = new FileReader()
+    reader.onload = () => setPreview(reader.result as string)
+    reader.readAsDataURL(file)
+
+    // Process upload
+    await onUpload(file)
+  } catch (error) {
+    console.error('Upload failed:', error)
+    setPreview(null)
+    alert('Upload failed. Please try again.')
+  }
+}, [setPreview, onUpload]); // These dependencies ensure the hook stays stable unless they change
 
   const handleDrop = useCallback(async (e: React.DragEvent) => {
   e.preventDefault();
