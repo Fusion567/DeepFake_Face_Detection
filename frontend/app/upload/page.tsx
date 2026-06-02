@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiUpload, FiLink, FiHardDrive, FiCloud, FiInstagram, FiChevronDown, FiX, FiYoutube } from 'react-icons/fi';
 import { useState, useRef, ChangeEvent, useCallback } from 'react';
-import { useGoogleLogin } from '@react-oauth/google';
+import { } from '@react-oauth/google';
 
 export default function UploadPage() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -15,7 +15,6 @@ export default function UploadPage() {
   const [urlInput, setUrlInput] = useState<string>('');
   
   // Added missing states to prevent compilation errors
-  const [googleDriveError, setGoogleDriveError] = useState<string | null>(null);
   const [isGoogleDriveLoading, setIsGoogleDriveLoading] = useState(false);
 
   const uploadOptions = [
