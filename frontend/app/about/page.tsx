@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiMail, FiAward } from 'react-icons/fi'
 import { useState } from 'react'
+import Image from 'next/image';
 
 const TeamMember = ({
   name,
@@ -37,7 +38,7 @@ const TeamMember = ({
         className="relative group w-64 h-64 flex-shrink-0"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-all" />
-        <img
+        <Image
           src={avatar}
           alt={name}
           className="relative w-full h-full rounded-full object-cover border-4 border-dark-300"
