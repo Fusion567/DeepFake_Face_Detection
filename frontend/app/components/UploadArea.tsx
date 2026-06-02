@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FiUpload, FiImage } from 'react-icons/fi'
 import { useState, useCallback } from 'react'
 import NextImage from 'next/image'
-import { useCallback } from 'react';
+
 
 interface UploadAreaProps {
   onUpload: (file: File) => Promise<void>
