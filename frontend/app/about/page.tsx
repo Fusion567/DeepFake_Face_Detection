@@ -127,18 +127,6 @@ const TeamMember = ({
 export default function AboutPage() {
   const teamMembers = [
     {
-      name: "Vandan Patel",
-      role: "AI Research Lead",
-      bio: "Computer vision specialist with 8+ years experience in deep learning. Developed novel detection algorithms that power our core technology. Passionate about fighting digital misinformation and creating ethical AI solutions.",
-      skills: ["Deep Learning", "Computer Vision", "TensorFlow", "Python", "Neural Networks"],
-      avatar: "vandan.jpg",
-      socials: {
-        github: "patelvandan11",
-        linkedin: "patelvandan11/",
-        email: "vandan11patel@gmail.com"
-      }
-    },
-    {
       name: "Yashrajsinh Parmar",
       role: "Frontend Developer",
       bio: "Full-stack developer specializing in interactive web applications. Built our detection interface with a focus on accessibility and user experience. Believes technology should be both powerful and intuitive for everyone.",
